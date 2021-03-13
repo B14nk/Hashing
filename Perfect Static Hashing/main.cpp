@@ -47,14 +47,13 @@ void prime(){
             p += 1;
         }
     }
-    cout<<"is Prime"<<endl;
 }
 
 void insert_bucket(vector<int> &elements){
     m = 50;
     bucket_vector.resize(m);
     prime();
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < elements.size(); i++)
     {
         bucket_vector[(((elements[i] * 3) + 15) % p) % m].emplace_back(elements[i]);
     }
@@ -78,11 +77,19 @@ void insert_hashtable(){
 
 int main(int argc, char** argv){
     vector<int> values;
-    srand (time(NULL));
+    srand (time(0));
     for (int i = 0; i < 5; i++)
     {
-        values.emplace_back(rand() % 5000);
+        values.push_back(rand() % 5000);
     }
+
+    cout<<"numbers to be hashed: ";
+    for (int i = 0; i < values.size(); i++)
+    {
+        cout<<values[i]<< " ";
+    }
+    cout<<endl;
+
     insert_bucket(values);
 
     insert_hashtable();
