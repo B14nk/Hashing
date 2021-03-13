@@ -50,7 +50,7 @@ void prime(){
 }
 
 void insert_bucket(vector<int> &elements){
-    m = 50;
+    m = 5;
     bucket_vector.resize(m);
     prime();
     for (int i = 0; i < elements.size(); i++)
@@ -78,7 +78,7 @@ void insert_hashtable(){
 int main(int argc, char** argv){
     vector<int> values;
     srand (time(0));
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 10; i++)
     {
         values.push_back(rand() % 5000);
     }
